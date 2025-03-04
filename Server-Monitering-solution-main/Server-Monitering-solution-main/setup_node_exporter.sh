@@ -15,7 +15,7 @@ if ! command -v docker &> /dev/null; then
 fi
 
 # Install Docker Compose if not installed
-if ! command -v docker-compose &> /dev/null; then
+if ! command -v /docker-compose &> /dev/null; then
     echo "Docker Compose not found. Installing Docker Compose..."
     sudo apt-get install -y docker-compose
 fi
@@ -26,7 +26,7 @@ mkdir -p "$INSTALL_DIR"
 cd "$INSTALL_DIR"
 
 # Create a docker-compose.yml for Node Exporter
-cat > docker-compose.yml <<'EOF'
+cat > /docker-compose.yml <<'EOF'
 version: '3.8'
 services:
   node_exporter:
